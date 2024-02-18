@@ -3,9 +3,10 @@
   <a href="https://typebot.io/#gh-light-mode-only" target="_blank">
   </a>
   <a href="https://typebot.io/#gh-dark-mode-only" target="_blank">
-    <img src="./.github/images/logo-dark.png" alt="Typebot illustration" width="350px"> SaaS White Label
+    <img src="./.github/images/logo-dark.png" alt="Typebot illustration" width="350px"> 
+    <p>SaaS White Label</p>
   </a>
-</p> SaaS White Label
+</p>
 <br />
 
 <p align="center">
