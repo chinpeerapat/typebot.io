@@ -4,7 +4,6 @@
   </a>
   <a href="https://typebot.io/#gh-dark-mode-only" target="_blank">
     <img src="/apps/builder/public/images/type-saas.png" alt="Typebot illustration" width="350px"> 
-    <p>SaaS White Label</p>
   </a>
 </p>
 <br />
