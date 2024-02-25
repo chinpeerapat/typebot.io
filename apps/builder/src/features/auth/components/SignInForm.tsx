@@ -48,7 +48,7 @@ export const SignInForm = ({
   const { showToast } = useToast()
   const [providers, setProviders] =
     useState<
-      Record<LiteralUnion<BuiltInProviderBranchType, string>, ClientSafeProvider>
+      Record<LiteralUnion<BuiltInProviderType, string>, ClientSafeProvider>
     >()
 
   const hasNoAuthProvider =
