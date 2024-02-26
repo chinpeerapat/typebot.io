@@ -80,7 +80,7 @@ export const SignInForm = ({
   const handleEmailChange = (e: ChangeEvent<HTMLInputElement>) =>
     setEmailValue(e.target.value)
 
-  const handleEmailSubmit = async (e: FormUserEvent) => {
+  const handleEmailSubmit = async (e: FormEvent) => {
     e.preventDefault()
     if (isMagicLinkSent) return
     setAuthLoading(true)
