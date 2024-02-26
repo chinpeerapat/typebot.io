@@ -10,7 +10,7 @@ import {
   Flex,
   AlertIcon,
   SlideFade,
-  Image, // <--- Adicionado para importar o componente Image do Chakra UI
+  Image,
 } from '@chakra-ui/react'
 import React, { ChangeEvent, FormEvent, useEffect } from 'react'
 import { useState } from 'react'
@@ -126,11 +126,11 @@ export const SignInForm = ({
       </Text>
     )
   return (
-    <Flex direction={{ base: 'column', md: 'row' }}> {/* Modificação da direção com responsividade. */}
+    <Flex direction={{ base: 'column', md: 'row' }}> {}
       <Image
-        src="/apps/builder/public/images/type-saas.png" // Caminho local para a imagem.
-        alt="Type SaaS Image"
-        marginRight="8" // Parando o espaçamento correto entre a imagem e o formulário.
+        src="/images/type-saas.png"
+        alt="Typebot SaaS Logo"
+        marginRight="8"
       />
       <Stack spacing="4" w="330px">
         {!isMagicLinkSent && (
