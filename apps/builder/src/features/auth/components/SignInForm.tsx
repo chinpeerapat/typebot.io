@@ -10,6 +10,7 @@ import {
   Flex,
   AlertIcon,
   SlideFade,
+  Image,
 } from '@chakra-ui/react'
 import React, { ChangeEvent, FormEvent, useEffect } from 'react'
 import { useState } from 'react'
@@ -74,7 +75,7 @@ export const SignInForm = ({
       showToast({
         status: 'info',
         description:
-          'Your account has suspicious activity and is being reviewed by our team. Feel free to contact us.',
+          'Sua conta apresenta atividades suspeitas e está sendo analisada por nossa equipe. Fique a vontade para nos contatar.',
       })
     }
   }, [router.isReady, router.query.error, showToast])
@@ -117,7 +118,7 @@ export const SignInForm = ({
     } catch (e) {
       showToast({
         status: 'info',
-        description: 'An error occured while signing in',
+        description: 'Ocorreu um erro ao fazer login',
       })
     }
     setAuthLoading(false)
@@ -137,53 +138,60 @@ export const SignInForm = ({
       </Text>
     )
   return (
-    <Stack spacing="4" w="330px">
-      {!isMagicLinkSent && (
-        <>
-          <SocialLoginButtons providers={providers} />
-          {providers?.email && (
-            <>
-              <DividerWithText mt="6">{t('auth.orEmailLabel')}</DividerWithText>
-              <HStack as="form" onSubmit={handleEmailSubmit}>
-                <Input
-                  name="email"
-                  type="email"
-                  autoComplete="email"
-                  placeholder="email@company.com"
-                  required
-                  value={emailValue}
-                  onChange={handleEmailChange}
-                />
-                <Button
-                  type="submit"
-                  isLoading={
-                    ['loading', 'authenticated'].includes(status) || authLoading
-                  }
-                  isDisabled={isMagicLinkSent}
-                >
-                  {t('auth.emailSubmitButton.label')}
-                </Button>
+    <Flex direction={{ base: 'column', md: 'row' }}> {}
+      <Image
+        src="/images/type-saas.png"
+        alt="Typebot SaaS Logo"
+        marginRight="8"
+      />
+      <Stack spacing="4" w="330px">
+        {!isMagicLinkSent && (
+          <>
+            <SocialLoginButtons providers={providers} />
+            {providers?.email && (
+              <>
+                <DividerWithText mt="6">{t('auth.orEmailLabel')}</DividerWithText>
+                <HStack as="form" onSubmit={handleEmailSubmit}>
+                  <Input
+                    name="email"
+                    type="email"
+                    autoComplete="email"
+                    placeholder="email@company.com"
+                    required
+                    value={emailValue}
+                    onChange={handleEmailChange}
+                  />
+                  <Button
+                    type="submit"
+                    isLoading={
+                      ['loading', 'authenticated'].includes(status) || authLoading
+                    }
+                    isDisabled={isMagicLinkSent}
+                  >
+                    {t('auth.emailSubmitButton.label')}
+                  </Button>
+                </HStack>
+              </>
+            )}
+          </>
+        )}
+        {router.query.error && (
+          <SignInError error={router.query.error.toString()} />
+        )}
+        <SlideFade offsetY="20px" in={isMagicLinkSent} unmountOnExit>
+          <Flex>
+            <Alert status="success" w="100%">
+              <HStack>
+                <AlertIcon />
+                <Stack spacing={1}>
+                  <Text fontWeight="semibold">{t('auth.magicLink.title')}</Text>
+                  <Text fontSize="sm">{t('auth.magicLink.description')}</Text>
+                </Stack>
               </HStack>
-            </>
-          )}
-        </>
-      )}
-      {router.query.error && (
-        <SignInError error={router.query.error.toString()} />
-      )}
-      <SlideFade offsetY="20px" in={isMagicLinkSent} unmountOnExit>
-        <Flex>
-          <Alert status="success" w="100%">
-            <HStack>
-              <AlertIcon />
-              <Stack spacing={1}>
-                <Text fontWeight="semibold">{t('auth.magicLink.title')}</Text>
-                <Text fontSize="sm">{t('auth.magicLink.description')}</Text>
-              </Stack>
-            </HStack>
-          </Alert>
-        </Flex>
-      </SlideFade>
-    </Stack>
+            </Alert>
+          </Flex>
+        </SlideFade>
+      </Stack>
+    </Flex>
   )
 }

@@ -1,10 +1,9 @@
 <br />
 <p align="center">
   <a href="https://typebot.io/#gh-light-mode-only" target="_blank">
-    <img src="./.github/images/logo-light.png" alt="Typebot illustration" width="350px">
   </a>
   <a href="https://typebot.io/#gh-dark-mode-only" target="_blank">
-    <img src="./.github/images/logo-dark.png" alt="Typebot illustration" width="350px">
+    <img src="/apps/builder/public/images/type-saas.png" alt="Typebot illustration" width="350px"> 
   </a>
 </p>
 <br />
